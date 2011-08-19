@@ -1,0 +1,7 @@
+;$Id: nodequeue_clear_cache.info,v 1.0 2011/08/18 20:45:42 Max Mendez Exp $
+name = Nodequeue Clear Cache	
+description = Clears the cache when insert or update a nodequeue
+dependencies[] = nodequeue
+package = MMV Modules
+core = 6.x
+php = 5.2

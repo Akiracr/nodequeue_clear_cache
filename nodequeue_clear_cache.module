@@ -1,0 +1,36 @@
+<?php
+// $Id$
+  
+/*
+ * @file
+ * Drupal Module: Nodequeue Clear Cache
+ * Clears the cache when insert or update a nodequeue
+ * @author: Maximiliano Mendez <maxmv@maxmendez.net>
+*/
+ 
+
+/**
+* Implementation of hook_nodequeue_add()
+*/
+function nodequeue_clear_cache_nodequeue_add($sqid, $nid) {
+    nodequeue_clear_cache_full_cache_clear();
+}
+
+/**
+* Implementation of hook_nodequeue_remove()
+*/
+function nodequeue_clear_cache_nodequeue_remove($sqid, $nid) {
+    nodequeue_clear_cache_full_cache_clear();
+}
+
+/**
+* Implementation of hook_nodequeue_swap()
+*/
+function nodequeue_clear_cache_nodequeue_swap($sqid, $nid) {
+    nodequeue_clear_cache_full_cache_clear();
+}
+
+function nodequeue_clear_cache_full_cache_clear() {
+    cache_clear_all();
+    drupal_set_message('nodequeue: all cache cleared');
+}
